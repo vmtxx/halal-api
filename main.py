@@ -8,6 +8,10 @@ from api.database import addProduct, getDBProduct
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/")
+def something():
+    return "cock"
+
 @app.route("/api/product/<barcode>")
 def check(barcode):
     result = getDBProduct(barcode)

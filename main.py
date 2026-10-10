@@ -1,12 +1,12 @@
 import json
 from flask import Flask, jsonify
-
+from flask_cors import CORS
 from api.gemini import checkProduct
 from api.openfoodfacts import getProduct
 from api.database import addProduct, getDBProduct
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/api/product/<barcode>")
 def check(barcode):
